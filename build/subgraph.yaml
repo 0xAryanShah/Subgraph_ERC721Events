@@ -1,8 +1,8 @@
 specVersion: 0.0.4
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
-  - kind: ethereum/contract    
+  - kind: ethereum/contract
     name: erc721
     network: goerli
     source:
@@ -16,7 +16,7 @@ dataSources:
         - ERC721Contract
       abis:
         - name: IERC721
-          file: ./abis/IERC721EnumerableMetadata.json
+          file: erc721\abis\IERC721EnumerableMetadata.json
       eventHandlers:
         - event: Approval(indexed address,indexed address,indexed uint256)
           handler: handleApproval
@@ -24,4 +24,4 @@ dataSources:
           handler: handleApprovalForAll
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
-      file: ./src/datasources/erc721.ts
+      file: erc721\erc721.wasm
